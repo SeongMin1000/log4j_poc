@@ -1,7 +1,6 @@
 package keeper.log4j.victim.service;
 
 import keeper.log4j.victim.dto.CommonResult;
-import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service // 해당 Class가 Service임을 명시합니다.
