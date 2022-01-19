@@ -5,7 +5,6 @@ import keeper.log4j.victim.entity.PostEntity;
 import keeper.log4j.victim.repository.PostRepository;
 import keeper.log4j.victim.service.ResponseService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Log4j2
 @RequiredArgsConstructor
 @RequestMapping("/")
-public class PostingController {
+public class PostController {
 
   private final ResponseService responseService;
   private final PostRepository postRepository;
