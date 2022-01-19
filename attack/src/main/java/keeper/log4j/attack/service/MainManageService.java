@@ -11,4 +11,11 @@ public class MainManageService {
   public String displayIP(){
     return "127.0.0.1";
   }
+
+  /**
+   * 취약한 자바 클래스
+   */
+  public void attackJavaClass(){
+
+  }
 }

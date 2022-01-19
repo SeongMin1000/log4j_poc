@@ -1,4 +1,4 @@
-package com.keepertech.victim;
+package keeper.log4j.victim;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class VictimApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(VictimApplication.class, args);
 	}
 
