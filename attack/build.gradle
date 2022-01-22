@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.2'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.6.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
 }
 
 group = 'keeper.log4j'
@@ -9,22 +9,35 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.2'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j:1.3.8.RELEASE'
+    testImplementation 'org.springframework.boot:spring-boot-starter-log4j:1.3.8.RELEASE'
+    implementation 'org.apache.logging.log4j:log4j-web:2.12.0'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    runtimeOnly 'com.h2database:h2:2.0.206'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.6.2'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testImplementation('org.springframework.boot:spring-boot-starter-test:2.6.2') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+configurations {
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
