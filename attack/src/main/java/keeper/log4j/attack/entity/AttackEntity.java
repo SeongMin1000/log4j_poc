@@ -17,15 +17,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
 @Table(name = "ip")
 public class AttackEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+
   private Long id;
   @Column(name = "ip")
   private String ip;
   @Column(name = "connectionDate")
-  private Date connectionDate;
+  private String connectionDate;
 
 }
