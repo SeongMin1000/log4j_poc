@@ -17,14 +17,8 @@ public class MainManageService {
 
   @Autowired
   AttackRepository attackRepository;
-  @GetMapping(value = "/")
-  public String mainController(Model model){
-    HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
-    String ip = req.getHeader("X-FORWARDED-FOR");
-    if(ip == null){
-      ip = req.getRemoteAddr();
-    }
-    model.addAttribute("clientIP", ip);
+
+  public void saveIpToDB(String ip){
 
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd, HH:mm:ss");
     Date now = new Date();
@@ -37,7 +31,6 @@ public class MainManageService {
 
     attackRepository.save(attackEntity);
 
-    return ip+"메인페이지입니다";
   }
 
   /**

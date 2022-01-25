@@ -24,14 +24,29 @@ import java.util.Date;
 @RestController
 @RequestMapping("/")
 @RequiredArgsConstructor
-public class  AttackMainController {
+public class AttackMainController {
+
   private final MainManageService mainManageService;
 
-  @GetMapping(value = "/attack")
-  public String attackClassController(){
-    return "공격클래스 매핑";
+  @GetMapping(value = "/")
+  public String mainController(Model model) {
+    HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
+    String ip = req.getHeader("X-FORWARDED-FOR");
+    if (ip == null) {
+      ip = req.getRemoteAddr();
     }
+    model.addAttribute("clientIP", ip);
 
+    mainManageService.saveIpToDB(ip);
+
+    return ip;
   }
+
+  @GetMapping(value = "/attack")
+  public String attackClassController() {
+    return "공격클래스 매핑";
+  }
+
+}
 
 
