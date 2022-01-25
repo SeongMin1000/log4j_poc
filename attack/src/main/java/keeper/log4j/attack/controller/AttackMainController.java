@@ -27,32 +27,6 @@ import java.util.Date;
 public class  AttackMainController {
   private final MainManageService mainManageService;
 
-  @Autowired
-  AttackRepository attackRepository;
-
-  @GetMapping(value = "/")
-  public String mainController(Model model){
-    HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
-    String ip = req.getHeader("X-FORWARDED-FOR");
-    if(ip == null){
-      ip = req.getRemoteAddr();
-    }
-    model.addAttribute("clientIP", ip);
-
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd, HH:mm:ss");
-    Date now = new Date();
-    String now_dt = format.format(now);
-
-    AttackEntity attackEntity = AttackEntity.builder()
-            .ip(ip)
-            .connectionDate(now_dt)
-            .build();
-
-    attackRepository.save(attackEntity);
-
-    return ip+"메인페이지입니다";
-  }
-
   @GetMapping(value = "/attack")
   public String attackClassController(){
     return "공격클래스 매핑";
