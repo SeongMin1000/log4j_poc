@@ -1,7 +1,14 @@
 package keeper.log4j.attack.repository;
 
+import keeper.log4j.attack.entity.AttackEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface AttackRepository extends JpaRepository {
+import java.util.List;
+
+@Repository
+public interface AttackRepository extends JpaRepository<AttackEntity, Long> {
+
 
 }
+
