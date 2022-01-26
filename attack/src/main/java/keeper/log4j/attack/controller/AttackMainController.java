@@ -1,4 +1,5 @@
 package keeper.log4j.attack.controller;
+
 import javax.servlet.http.HttpServletRequest;
 
 import keeper.log4j.attack.entity.AttackEntity;
@@ -26,7 +27,6 @@ import org.springframework.data.domain.Pageable;
 public class AttackMainController {
 
   private final MainManageService mainManageService;
-
 
   @Autowired
   AttackRepository attackRepository;
@@ -58,10 +58,3 @@ public class AttackMainController {
   }
 
 }
-
-
-
-
-
-
-
