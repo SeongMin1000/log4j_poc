@@ -9,6 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AttackRepository extends JpaRepository<AttackEntity, Long> {
-
 }
 
