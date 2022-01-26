@@ -27,7 +27,7 @@ public class AttackEntity {
   private Long id;
   @Column(name = "ip")
   private String ip;
-  @Column(name = "connectionDate")
+  @Column(name = "connection_date")
   private String connectionDate;
 
 }
