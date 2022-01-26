@@ -23,6 +23,7 @@ public class AttackMainController {
 
   private final MainManageService mainManageService;
 
+
   @Autowired
   AttackRepository attackRepository;
 
@@ -34,6 +35,7 @@ public class AttackMainController {
       ip = req.getRemoteAddr();
     }
     model.addAttribute("clientIP", ip);
+
     mainManageService.saveIpToDB(ip);
 
     List<AttackEntity> list =new ArrayList<>();
@@ -43,6 +45,13 @@ public class AttackMainController {
     }
     return list;
   }
+
+  @GetMapping(value = "/attack")
+  public String attackClassController() {
+    return "공격클래스 매핑";
+  }
+
+}
 
 
 
