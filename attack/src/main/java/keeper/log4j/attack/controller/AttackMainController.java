@@ -1,4 +1,5 @@
 package keeper.log4j.attack.controller;
+
 import javax.servlet.http.HttpServletRequest;
 
 import keeper.log4j.attack.entity.AttackEntity;
@@ -23,7 +24,6 @@ public class AttackMainController {
 
   private final MainManageService mainManageService;
 
-
   @Autowired
   AttackRepository attackRepository;
 
@@ -38,23 +38,13 @@ public class AttackMainController {
 
     mainManageService.saveIpToDB(ip);
 
-    List<AttackEntity> list =new ArrayList<>();
+    List<AttackEntity> list = new ArrayList<>();
     Iterable<AttackEntity> iterable = attackRepository.findAll();
-    for(AttackEntity attackEntity : iterable){
+    for (AttackEntity attackEntity : iterable) {
       list.add(attackEntity);
     }
     return list;
   }
-
-  @GetMapping(value = "/attack")
-  public String attackClassController() {
-    return "공격클래스 매핑";
-  }
-
-}
-
-
-
 
   @GetMapping(value = "/attack")
   public String attackClassController() {
