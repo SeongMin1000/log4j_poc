@@ -8,6 +8,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+
 @Service
 public class MainManageService {
 
@@ -26,11 +30,6 @@ public class MainManageService {
     attackRepository.save(attackEntity);
   }
 
-  /**
-   * 취약한 자바 클래스
-   */
-  public void attackJavaClass(){
 
-  }
 
 }
