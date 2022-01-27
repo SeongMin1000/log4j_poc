@@ -43,12 +43,12 @@ public class AttackMainController {
     model.addAttribute("clientIP", ip);
     mainManageService.saveIpToDB(ip);
 
-    List<AttackEntity> list =new ArrayList<>();
+    List<AttackEntity> list = new ArrayList<>();
 
     Sort sort1 = Sort.by("id").descending();
-    Pageable pageable = PageRequest.of(0, 5,sort1);
+    Pageable pageable = PageRequest.of(0, 5, sort1);
     Page<AttackEntity> result = attackRepository.findAll(pageable);
-    for(AttackEntity attackEntity : result.getContent()){
+    for (AttackEntity attackEntity : result.getContent()) {
       list.add(attackEntity);
     }
     return list;
@@ -57,7 +57,7 @@ public class AttackMainController {
   @GetMapping(value = "/attack")
   public String attackClassController() {
 
-    return "공격클래스 매핑";
+    return "redirect:/attack/AttackClass";
   }
 
 }
