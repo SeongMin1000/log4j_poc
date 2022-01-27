@@ -6,6 +6,8 @@ import keeper.log4j.attack.entity.AttackEntity;
 import keeper.log4j.attack.repository.AttackRepository;
 import keeper.log4j.attack.service.MainManageService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
 import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public class AttackMainController {
   @Autowired
   AttackRepository attackRepository;
 
-  @GetMapping(value = "/")
+  @GetMapping(value = "/main")
   @ResponseBody
   public JSONArray mainController(Model model) {
     HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
