@@ -24,9 +24,9 @@ public class MainManageService {
     String now_dt = format.format(now);
 
     AttackEntity attackEntity = AttackEntity.builder()
-            .ip(ip)
-            .connectionDate(now_dt)
-            .build();
+        .ip(ip)
+        .connectionDate(now_dt)
+        .build();
     attackRepository.save(attackEntity);
   }
 

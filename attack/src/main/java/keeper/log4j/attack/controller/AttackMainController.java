@@ -9,6 +9,8 @@ import keeper.log4j.attack.service.MainManageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.ldap.core.LdapTemplate;
+import org.springframework.ldap.core.support.LdapContextSource;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,7 +59,7 @@ public class AttackMainController {
   @GetMapping(value = "/attack")
   public String attackClassController() {
 
-    return "redirect:/attack/AttackClass";
+    return "으악";
   }
 
 }
