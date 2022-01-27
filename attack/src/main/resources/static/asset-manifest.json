@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9b49f38a.css",
+    "main.js": "/static/js/main.e2f261f4.js",
+    "static/media/치우.png": "/static/media/치우.d2ba8958e660958e39de.png",
+    "static/media/치우_로고.png": "/static/media/치우_로고.e67292f22c6c54b2c890.png",
+    "index.html": "/index.html",
+    "main.9b49f38a.css.map": "/static/css/main.9b49f38a.css.map",
+    "main.e2f261f4.js.map": "/static/js/main.e2f261f4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b49f38a.css",
+    "static/js/main.e2f261f4.js"
+  ]
+}
