@@ -2,7 +2,6 @@ package keeper.log4j.attack.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import keeper.log4j.attack.attack.AttackClass;
 import keeper.log4j.attack.entity.AttackEntity;
 import keeper.log4j.attack.repository.AttackRepository;
 import keeper.log4j.attack.service.MainManageService;
@@ -28,7 +27,6 @@ import org.springframework.data.domain.Pageable;
 public class AttackMainController {
 
   private final MainManageService mainManageService;
-  private final AttackClass attackClass;
 
   @Autowired
   AttackRepository attackRepository;
@@ -57,7 +55,7 @@ public class AttackMainController {
   @GetMapping(value = "/attack")
   public String attackClassController() {
 
-    return "redirect:/attack/AttackClass";
+    return "으악";
   }
 
 }
