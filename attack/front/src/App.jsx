@@ -1,29 +1,29 @@
 import "./style.css";
+import React, {useState, useEffect} from "react";
 
 function App() {
-  var requestURL =
-    "https://raw.githubusercontent.com/publdaze/movieWebWithReactJS/main/DE/test/test.json";
+  const [jsonObj, setJsonObj] = useState([]);
+  const config = {
+    headers: {
+      'Accept': 'application/json'
+    }
+  }
+  fetch('/', config)
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    setJsonObj(data);
+  });
+  maketable();
 
-  var request = new XMLHttpRequest();
-  request.addEventListener("load", reqListener);
-  request.open("GET", requestURL);
-  request.responseType = "json";
-  request.send();
-
-  function reqListener() {
-    var datas = request.response;
-    maketable(datas);
-  };
-
-  function maketable(jsonObj) {
+  function maketable() {
     var myTbody = document.getElementById("tbody");
 
-    while (myTbody.firstChild) {
-      myTbody.removeChild(myTbody.lastChild);
-    } //  남아있던 기록 지움
-    console.log(jsonObj[1]);
-    console.log(jsonObj.length);
-    for (var i = 0; i < 5; i++) {
+    // while (myTbody.firstChild) {
+    //   myTbody.removeChild(myTbody.lastChild);
+    // } //  남아있던 기록 지움
+    for (var i = 0; i < jsonObj.length; i++) {
       var myTr = document.createElement("tr");
       var myTd1 = document.createElement("td");
       var myTd2 = document.createElement("td");
@@ -45,11 +45,11 @@ function App() {
       <div className="content">
         <table>
           <thead>
-            <tr>
-              <th>id</th>
-              <th>ip</th>
-              <th>connection_date</th>
-            </tr>
+          <tr>
+            <th>id</th>
+            <th>ip</th>
+            <th>connection_date</th>
+          </tr>
           </thead>
           <tbody id="tbody"></tbody>
         </table>
