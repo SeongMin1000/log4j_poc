@@ -2,15 +2,12 @@ package keeper.log4j.attack.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import keeper.log4j.attack.attack.AttackClass;
 import keeper.log4j.attack.entity.AttackEntity;
 import keeper.log4j.attack.repository.AttackRepository;
 import keeper.log4j.attack.service.MainManageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.ldap.core.LdapTemplate;
-import org.springframework.ldap.core.support.LdapContextSource;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +27,6 @@ import org.springframework.data.domain.Pageable;
 public class AttackMainController {
 
   private final MainManageService mainManageService;
-  private final AttackClass attackClass;
 
   @Autowired
   AttackRepository attackRepository;
