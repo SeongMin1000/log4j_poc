@@ -32,10 +32,4 @@ public class PostController {
     return responseService.getSuccessResult();
   }
 
-  @GetMapping(value = "/")
-  @ResponseBody
-  public String showPost(){
-    return "게시글";
-  }
-
 }
