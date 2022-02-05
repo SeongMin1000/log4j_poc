@@ -24,4 +24,6 @@ public class PostEntity{
   private Long id;
   @Column(name = "content", nullable = false, unique = true, length = 1024)
   private String content;
+  @Column(name = "register_date", nullable = false, unique = true)
+  private String registerDate;
 }

@@ -4,7 +4,6 @@ import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
 
 
-
 import keeper.log4j.victim.dto.CommonResult;
 import keeper.log4j.victim.entity.PostEntity;
 import keeper.log4j.victim.repository.PostRepository;
@@ -33,26 +32,13 @@ public class PostController {
   private final CommentService commentService;
 
   @PostMapping(value = "posting")
-  @ResponseBody
-  public CommonResult posting(@RequestParam String content) {
+  public JSONArray posting(@RequestParam String content) {
     commentService.saveContentToDB(content);
-    //postRepository.save(PostEntity.builder().content(content).build());
     log.info(content);
 
-    List<PostEntity> list = new ArrayList<>();
+    JSONArray jsonArray = commentService.getContentFromDB();
 
-    Sort sort1 = Sort.by("id").descending();
-    Pageable pageable = PageRequest.of(0, 5, sort1);
-    Page<PostEntity> result = postRepository.findAll(pageable);
-    JSONArray jsonArray = new JSONArray();
-    for (PostEntity postEntity : result.getContent()) {
-      JSONObject jsonObject = new JSONObject();
-      jsonObject.put("id", postEntity.getId());
-      jsonObject.put("content", postEntity.getContent());
-      jsonArray.add(jsonObject);
-      list.add(postEntity);
-    }
-    return responseService.getSuccessResult();
+    return jsonArray;
   }
 }
 
