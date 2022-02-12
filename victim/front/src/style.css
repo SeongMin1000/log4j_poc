@@ -1,0 +1,53 @@
+#form-commentInfo{ 
+    width: 100%; 
+    margin-left: 100px;
+} 
+#comment-count{ 
+    margin-bottom: 10px; 
+    margin-left: 100px;
+} 
+#comment-input{ 
+    width: 50%; 
+    height: 3.3em; 
+    margin-left: 100px;
+} 
+#submit{ 
+    background-color: rgb(0, 128,255); 
+    width: 5.5em; 
+    height: 3.3em;; 
+    font-size: 15px; 
+    font-weight: bold; 
+    color: aliceblue; 
+} 
+#comments{ 
+    margin-top: 10px; 
+    margin-left: 190px;
+} 
+.eachComment{ 
+    width :65%;
+    margin: 10px;
+    padding: 0.5em; 
+    border-bottom: 1px solid #c1bcba; 
+} 
+.eachComment .name{ 
+    font-size: 1.5em; 
+    font-weight: bold; 
+    margin-bottom: 0.3em; 
+    display: flex; 
+    justify-content: space-between; 
+} 
+.eachComment .inputValue{ 
+    font-size: 1.2em; 
+    font-style: italic; 
+} 
+.eachComment .time{ 
+    font-size: 0.7em;
+    color: #c1bcba; 
+    font-style: oblique; 
+    margin-top: 0.5em; 
+    margin-bottom: 0.5em; 
+} 
+.eachComment .deleteComment{ 
+    background-color: red; 
+    color: aliceblue; 
+}
