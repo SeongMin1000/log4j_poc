@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import "./style.css";
+
 var i = 1;
+
 function Comment() {
   const [chatting, setChat] = useState("");
   const rootDiv = document.querySelector("#comments");
@@ -17,7 +19,7 @@ function Comment() {
     const sec = date.getSeconds();
 
     const time =
-      year + "-" + month + "-" + wDate + " " + hour + ":" + min + ":" + sec;
+        year + "-" + month + "-" + wDate + " " + hour + ":" + min + ":" + sec;
     return time;
   }
 
@@ -83,6 +85,19 @@ function Comment() {
     if (!currentVal.length) {
       alert("댓글을 입력해주세요!!");
     } else {
+      fetch("http://localhost:8080/posting", {
+        method: "POST",
+        body: JSON.stringify({
+          "content": currentVal,
+        }),
+      })
+      .then((response) => response.json)
+      .then((data) => {
+        console.log("success : ", data);
+      })
+      .catch((error) => {
+        console.log("error : ", error);
+      });
       showComment(currentVal);
       mainCommentCount.innerHTML++;
       inputBar.value = "";
@@ -97,37 +112,50 @@ function Comment() {
       if (!currentVal.length) {
         alert("댓글을 입력해주세요!!");
       } else {
+        fetch("http://localhost:8080/posting", {
+          method: "POST",
+          body: JSON.stringify({
+            "content": currentVal,
+          }),
+        })
+        .then((response) => response.json)
+        .then((data) => {
+          console.log("success : ", data);
+        })
+        .catch((error) => {
+          console.log("error : ", error);
+        });
         showComment(currentVal);
         mainCommentCount.innerHTML++;
         inputBar.value = "";
-      } 
+      }
     }
   };
 
   const onChange = (e) => {
     setChat(e.target.value);
-  }
+  };
 
   return (
-    <div>
-      <div id="form-commentInfo">
-        <div id="comment-count">
-          댓글 <span id="count">0</span>
+      <div>
+        <div id="form-commentInfo">
+          <div id="comment-count">
+            댓글 <span id="count">0</span>
+          </div>
+          <input
+              id="comment-input"
+              onKeyPress={onKeyPress}
+              value={chatting}
+              onChange={onChange}
+              placeholder="댓글을 입력해 주세요."
+          />
+          <button id="submit" onClick={pressBtn}>
+            등록
+          </button>
         </div>
-        <input
-          id="comment-input"
-          onKeyPress={onKeyPress}
-          value={chatting}
-          onChange={onChange}
-          placeholder="댓글을 입력해 주세요."
-        />
-        <button id="submit" onClick={pressBtn}>
-          등록
-        </button>
+        <div id="comments"></div>
       </div>
-      <div id="comments"></div>
-    </div>
-  ); 
+  );
 }
 
 export default Comment;
