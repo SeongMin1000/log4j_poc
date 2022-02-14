@@ -40,6 +40,14 @@ public class PostController {
 
     return jsonArray;
   }
+
+  @PostMapping(value = "delete")
+  public CommonResult delete(@RequestParam String content, @RequestParam String registerDate){
+    log.info(content);
+    log.info(registerDate);
+
+    return commentService.deleteContent(content, registerDate);
+  }
 }
 
 
