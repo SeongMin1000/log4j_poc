@@ -23,14 +23,11 @@ public class CommentService {
   private PostRepository postRepository;
   private ResponseService responseService;
 
-  public void saveContentToDB(String content) {
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd, HH:mm:ss");
-    Date now = new Date();
-    String now_dt = format.format(now);
+  public void saveContentToDB(String content, String registerDate) {
 
     PostEntity postEntity = PostEntity.builder()
         .content(content)
-        .registerDate(now_dt)
+        .registerDate(registerDate)
         .build();
 
     postRepository.save(postEntity);
